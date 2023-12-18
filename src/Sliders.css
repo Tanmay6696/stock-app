@@ -1,0 +1,73 @@
+html,
+body {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+.selected{
+  --bs-text-opacity: 1;
+    color: rgba(var(--bs-success-rgb),var(--bs-text-opacity))!important;
+    font-weight: 700!important;
+}
+
+.outercontainer {
+  display: flex;
+  flex-wrap: wrap;
+  margin: auto;
+  flex-direction: row;
+  justify-content: space-around;
+  /* max-width: 100%;
+  min-width: 100%; */
+  /* grid-template-columns: repeat(5, 0.1fr);
+  grid-template-rows: 1fr;
+  grid-template-areas: "card0 card1 card2 card3 card4"; */
+}.items{
+  flex-basis: 20%;
+  margin: 10px 0px;
+  
+  
+}
+.card-title{
+  font-weight: 500;
+  font-size: 28px;
+  color: #012970;
+  font-weight: 700;
+  margin: 0;
+  padding: 0;
+  
+  
+}
+.card-text{
+  --bs-text-opacity: 1;
+    color: rgba(var(--bs-success-rgb),var(--bs-text-opacity))!important;
+    font-weight: 700!important;
+}
+.card-texts{
+  --bs-text-opacity: 1;
+    color: black;
+    font-weight: 700!important;
+}
+
+@media only screen and (min-width:200px)and (max-width: 768px) {
+  .outercontainer {
+    display: grid;
+   margin-top: 5%;
+  
+    
+     grid-template-columns: 1fr;
+    grid-template-rows: repeat(4, 1fr); /* Each card takes a whole row */
+     grid-template-areas:
+      "card0"
+      "card1"
+      "card2"
+      "card3";
+    
+    grid-gap: 10px;   
+    /* Add some spacing between the cards */
+  }
+  .card{
+    flex-basis: 20%;
+    margin: 10px;
+  }
+}
+

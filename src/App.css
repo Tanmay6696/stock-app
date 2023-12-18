@@ -1,0 +1,809 @@
+.App {
+  text-align: center;
+}
+
+/* .container {
+  overflow: hidden; /* Clearfix to contain floated children */
+/* }  */
+
+/* .menu-side,
+.content-side {
+  float: left;
+  box-sizing: border-box;
+  padding: 20px;
+  border: 1px solid #ccc;
+} */
+
+
+
+/* .menubox {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 20px;
+} */
+
+/* .menu-side {
+  width: 20%;
+  background: #f0f0f0;
+  height: 20%; 
+} */
+
+/* .content-side {
+  width: 80%;
+  background: #e0e0e0;
+  height: 80%; 
+} */
+
+
+.headerspan {
+  /* Rectangle 9 */
+  display: flex;
+  align-items: center;
+
+position: absolute;
+width: 916.25px;
+max-width: 100%;
+height: 83.12px;
+left: 279px;
+top: 0px;
+
+background: #FFFFFF;
+
+
+}
+/* .logotext{
+  display: flex;
+flex-direction: row;
+justify-content: center;
+align-items: center;
+padding: 0px;
+gap: 5.15px;
+
+position: absolute;
+width: 82.35px;
+height: 23.2px;
+left: 99.87px;
+top: 36.08px;
+} */
+
+  /* My Portfolio */
+
+  .Nameincontent {
+    position: absolute;
+width: 99px;
+height: 23px;
+left: 305.42px;
+top: 108.89px;
+
+font-family: 'Manrope';
+font-style: normal;
+font-weight: 800;
+font-size: 16.5175px;
+line-height: 23px;
+/* identical to box height */
+text-align: center;
+
+color: #000000;
+  }
+  
+  .datashown {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    padding: 23.1962px 23.8406px 23.8406px 36.7273px;
+    gap: 6.44px;
+    isolation: isolate;
+    position: absolute;
+    width: 846.02px;
+    height: 156.57px;
+    left: 305.42px;
+    top: 200px;
+    background: #FFFFFF;
+    border-radius: 12.8868px;
+  }
+  .sidebarcontent {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    padding: 23.1962px 23.8406px 23.8406px 36.7273px;
+    gap: 6.44px;
+    isolation: isolate;
+    position: absolute;
+    width: 846.02px;
+    height: 156.57px;
+    left: 305.42px;
+    top: 147.55px;
+    background: #FFFFFF;
+    border-radius: 12.8868px;
+  
+  }
+  .sidebarcontentMenudata{
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    padding: 0px;
+    gap: 26.42px;
+    margin-top:15px;
+
+    width: 208.07px;
+    height: 155.21px;
+  }
+  .frame20{
+    display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  padding: 0px;
+  gap: 23.84px;
+  
+  width: 211.86px;
+  height: 113.4px;
+  }
+  @media (max-width: 768px) {
+    .sidebarcontent {
+      order: -1;
+      width: 100%; /* Adjust width for smaller screens */
+      left: 0; /* Reset left position for full width */
+      padding: 15px; /* Example: Reduce padding for smaller screens */
+    }   
+  
+    .sidebarcontentMenudata,
+    .frame20 {
+      width: 100%; /* Adjust width for smaller screens */
+      margin-top: 10px; /* Example: Add some space between sections */
+    }
+  }
+
+
+
+  .frame101 {
+    box-sizing: border-box;
+    position: absolute;
+    width: 100%;
+    height: 832px;
+    left: 41%; /* Center horizontally */
+   
+    transform: translateX(-50%); /* Adjust for centering */
+    background: #F5F7F9;
+    border: 0.644339px solid #E9E9E9;
+    border-radius: 38.6604px;
+  }
+  
+  .addicon{
+    width: 15.46px;
+    height: 15.46px;
+  }
+  .Rectangle8{/* Rectangle 8 */
+
+    position: absolute;
+    display: flex;
+  flex-direction: column;
+    width: 277.07px;
+    height: 809.93px;
+    left: 0.64px;
+    top: -0.64px;
+    
+    background: #FFFFFF;
+    }
+
+
+    .sidebarcontent{
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      padding: 0px;
+      gap: 239.05px;
+      isolation: isolate;
+
+      position: absolute;
+      width: 211.86px;
+      height: 567.66px;
+      left: 32.22px;
+      top: 196.52px;
+    }
+    
+    .investamentCard{
+      display: flex;
+      flex-direction: column;
+      align-items: flex-start;
+      padding: 14.1755px 12.2424px;
+      gap: 6.44px;
+      
+      position: absolute;
+      width: 205.5px;
+      height: 72.75px;
+      left: 25.77px;
+      top: 91.5px;
+      
+      background: #1C1C1C;
+      border-radius: 11.5981px;
+    }
+
+
+.stockdisplay{
+  display: flex;
+flex-direction: column;
+align-items: flex-start;
+padding: 23.1962px 23.8406px 23.8406px 36.7273px;
+gap: 6.44px;
+isolation: isolate;
+
+position: absolute;
+width: 846.02px;
+height: 156.57px;
+left: 305.42px;
+top: 147.55px;
+
+background: #FFFFFF;
+border-radius: 12.8868px;
+}
+
+.stockansandwatchlist{
+  display: flex;
+flex-direction: row;
+align-items: center;
+padding: 0px;
+gap: 20.62px;
+
+position: absolute;
+max-width: 100%;
+height: 434.45px;
+left: 306.71px;
+top: 328.61px;
+
+}
+.ParticularStock{
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  padding: 24.4849px 31.5726px;
+  gap: 6.44px;
+  
+  width: 558.49px;
+  height: 431.78px;
+  
+  background: #FFFFFF;
+  border-radius: 24.4849px;
+  
+  /* Inside auto layout */
+  flex: none;
+  order: 0;
+  flex-grow: 0;
+}
+.watchlistnamecomponent{
+  display: flex;
+flex-direction: row;
+align-items: center;
+padding: 0px;
+gap: 113.4px;
+
+width: 228.87px;
+height: 21px;
+
+}
+.frame104{
+  
+display: flex;
+flex-direction: row;
+align-items: center;
+padding: 0px;
+gap: 6.44px;
+
+width: 87.39px;
+height: 39.95px;
+
+
+}
+
+
+.frame106{
+  display: flex;
+flex-direction: column;
+align-items: flex-end;
+padding: 0px;
+gap: 9.02px;
+
+width: 230.4px;
+height: 49.62px;
+}
+.frame136{
+  display: flex;
+flex-direction: column;
+align-items: center;
+padding: 0px;
+gap: 12.89px;
+
+width: 230.4px;
+height: 347.08px;
+}
+
+.stockprice{
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  padding: 0px;
+  gap: 12.24px;
+  
+  width: 162.57px;
+  height: 87.19px;
+  
+
+
+/* Inside auto layout */
+flex: none;
+order: 0;
+flex-grow: 0;
+z-index: 0;
+}
+.Graphcontainer{
+  display: flex;
+flex-direction: column;
+align-items: flex-end;
+padding: 0px;
+gap: 30.28px;
+
+width: 495.34px;
+height: 382.81px;
+
+
+/* Inside auto layout */
+flex: none;
+order: 0;
+flex-grow: 0;
+
+}
+.frame77{
+  
+display: flex;
+flex-direction: row;
+align-items: center;
+padding: 0px;
+gap: 36.08px;
+
+width: 100%;
+height: 110.83px;
+
+}
+  
+
+/* .outerContainer{
+  /* display: flex;
+  flex-direction: column;
+  align-items: flex-start; */
+  /* padding: 23.1962px 23.8406px 23.8406px 36.7273px;
+  gap: 6.44px;
+  isolation: isolate;
+  
+  position: absolute;
+  max-width: 100%;
+  
+  /* height: 156.57px;
+  left: 305.42px; */
+  /* top: 147.55px;
+  
+  background: #FFFFFF;
+  border-radius: 12.8868px; */ 
+
+
+
+/* } */
+.card-title{
+  padding: 10px 0 5px 0;
+    font-size: 18px;
+    font-weight: 500;
+    color: #012970;
+    font-family: "Poppins", sans-serif;
+}
+.filter{
+  position: absolute;
+  right: 0px;
+  top: 15px;
+
+}
+.dashboard .sales-card .card-icon {
+  color: #4154f1;
+  background: #f6f6fe;
+}
+.text-success {
+  color: green; /* or any other color value */
+}
+
+.fw-bold {
+  font-weight: bold;
+}
+.logoandcharts{
+  display: flex;
+flex-direction: row;
+align-items: center;
+padding: 0px;
+gap: 5.8px;
+
+width: 75.73px;
+height: 30.93px;
+
+
+}
+.stockName{
+  width: 39px;
+  height: 18px;
+
+  font-family: 'Manrope';
+  font-style: normal;
+  font-weight: 800;
+  font-size: 13.4062px;
+  line-height: 18px;
+  text-align: center;
+
+  color: #000000;
+}
+.graphofsmallstocks{
+  width: 51.55px;
+height: 22.55px;
+}
+.shareprice{
+  display: flex;
+flex-direction: row;
+align-items: flex-start;
+padding: 0px;
+gap: 32.86px;
+
+width: 162.57px;
+height: 44.02px;
+
+
+
+}
+.cmp{
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  padding: 0px;
+  gap: 10.31px;
+
+  width: 69px;
+  height: 42.31px;
+}
+.priceofshare{
+  display: flex;
+flex-direction: row;
+align-items: center;
+padding: 0px;
+margin-left: 5px;
+width: 60.71px;
+height: 18px;
+}
+
+
+.graphandlogo{
+  display: flex;
+flex-direction: row;
+align-items: center;
+padding: 0px;
+gap: 34.79px;
+
+width: 162.07px;
+height: 30.93px;
+
+}
+.stockdispaly2{
+  display: flex;
+flex-direction: row;
+align-items: center;
+padding: 0px;
+gap: 36.08px;
+
+width: 779.66px;
+height: 110.83px;
+}
+
+
+.aboveOptions{
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  padding: 0px;
+  gap: 26.42px;
+
+  width: 208.07px;
+  height: 215.21px;
+}
+.home{
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  padding: 0px;
+  gap: 9.02px;
+
+  width: 70.93px;
+  height: 21.91px;
+}
+.hometext{
+  width: 40px;
+height: 19px;
+
+font-family: 'Manrope';
+font-style: normal;
+font-weight: 700;
+font-size: 13.9177px;
+line-height: 19px;
+/* identical to box height */
+text-align: center;
+
+color: #000000;
+}
+.Frame88{
+  display: flex;
+flex-direction: column;
+align-items: center;
+padding: 0px;
+gap: 16.11px;
+
+width: 495.34px;
+height: 96.35px;
+}
+.Frame87{
+  display: flex;
+flex-direction: column;
+align-items: flex-start;
+padding: 0px;
+gap: 16.11px;
+
+width: 495.34px;
+height: 58.97px;
+}
+.Frame86{
+  display: flex;
+flex-direction: row;
+align-items: center;
+padding: 0px;
+gap: 252.58px;
+
+width: 495.34px;
+height: 42.87px;
+}
+.Frame83{
+  display: flex;
+flex-direction: row;
+align-items: center;
+padding: 0px;
+gap: 12.24px;
+
+width: 128.97px;
+height: 42.29px;
+}
+.Frame82{
+  display: flex;
+flex-direction: column;
+align-items: flex-start;
+padding: 0px;
+gap: 1.29px;
+
+width: 80px;
+height: 42.29px;
+}
+.Group19{
+  width: 494.77px;
+height: 256.18px;
+}
+.frame85{
+  display: flex;
+flex-direction: column;
+align-items: flex-end;
+padding: 0px;
+gap: 3.87px;
+
+width: 113.79px;
+height: 42.87px;
+
+}
+.PriceText{
+  width: 67px;
+height: 25px;
+
+font-family: 'Manrope';
+font-style: normal;
+font-weight: 600;
+font-size: 18.0103px;
+line-height: 25px;
+}
+.frame89{
+  display: flex;
+flex-direction: column;
+align-items: flex-end;
+padding: 0px;
+gap: 33.51px;
+
+position: absolute;
+width: 12px;
+height: 221.53px;
+left: 40.58px;
+top: 126.63px;
+}
+.Frame98{
+  display: flex;
+flex-direction: row;
+align-items: flex-start;
+padding: 0px;
+gap: 47.68px;
+
+position: absolute;
+width: 432.77px;
+height: 26.15px;
+left: 90.52px;
+top: 356.66px;
+}
+.Frame142{
+  position: absolute;
+width: 468.43px;
+height: 194.27px;
+left: 91.84px;
+top: 155.63px;
+}
+
+.frame15{
+  display: flex;
+flex-direction: row;
+align-items: center;
+padding: 0px;
+gap: 9.02px;
+
+width: 130.93px;
+height: 21.91px;
+
+}
+.frame6{
+  display: flex;
+flex-direction: row;
+justify-content: center;
+align-items: center;
+padding: 0px;
+gap: 34.79px;
+
+width: 201.01px;
+height: 44.4px;
+}
+.frame3{
+  display: flex;
+flex-direction: column;
+align-items: flex-start;
+padding: 0px;
+gap: 2.58px;
+
+width: 104.4px;
+height: 44.4px;
+}
+.frame4{
+  display: flex;
+flex-direction: row;
+align-items: center;
+padding: 0px;
+gap: 3.22px;
+
+width: 61.82px;
+height: 17px;
+}
+.textTotalInvestment{
+  width: 92px;
+height: 16px;
+
+font-family: 'Manrope';
+font-style: normal;
+font-weight: 500;
+font-size: 18.5981px;
+line-height: 16px;
+/* identical to box height */
+text-align: center;
+
+color: #FFFFFF;
+}
+.amountTotalInvestment{
+  
+/* $5380,90 */
+
+width: 87px;
+height: 20px;
+
+font-family: 'Manrope';
+font-style: normal;
+font-weight: 700;
+font-size: 23.557px;
+line-height: 25px;
+text-align: center;
+margin-top: 31px;
+
+color: #FFFFFF;
+
+
+/* Inside auto layout */
+flex: none;
+order: 0;
+flex-grow: 0;
+
+
+}
+.percentincreaseordecreaseamount{
+  width: 47px;
+height: 17px;
+
+font-family: 'Manrope';
+font-style: normal;
+font-weight: 700;
+font-size: 22.344px;
+line-height: 17px;
+/* identical to box height */
+text-align: center;
+
+color: #6AB686;
+}
+.frame2{
+  display: flex;
+flex-direction: row;
+align-items: center;
+padding: 0px;
+gap: 7.73px;
+
+width: 104.4px;
+height: 25px;
+
+}
+.logotextmain{
+  display: flex;
+flex-direction: row;
+justify-content: center;
+align-items: center;
+padding: 0px;
+gap: 5.15px;
+
+position: absolute;
+width: 112.35px;
+height: 23.2px;
+left: 99.87px;
+top: 36.08px;
+
+}
+.nameofperson{
+  position: absolute;
+width: 95px;
+height: 19px;
+left: 715.48px;
+top: 30.93px;
+
+font-family: 'Manrope';
+font-style: normal;
+font-weight: 700;
+font-size: 13.8414px;
+line-height: 19px;
+/* identical to box height */
+
+color: #000000;
+}
+/* main componenet css */
+
+.main-content {
+  
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  padding: 20px;
+  /* Add more styles as needed */
+}
+
+/* Media query for responsiveness */
+@media (min-width: 768px) {
+  .frame101 {
+    flex-direction: row;
+    width: 1196px;
+  }
+
+  .Rectangle8 {
+    order: 2; /* Move the sidebar content to the end on larger screens */
+  }
+  .main-content {
+    flex-direction: row;
+    justify-content: space-around;
+    margin: 0 auto; /* Center the content horizontally */
+    
+  }
+
+  
+}
