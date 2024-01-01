@@ -1,12 +1,13 @@
 import React, { useState } from 'react'
 import './Stockandwatchlistcontainer.css';
+import appleLogo from '../images/apple.svg';
 import Particularstock from './stockandWatchlist/Particularstock';
 import WatchList from './stockandWatchlist/WatchList';
 const StockandWatchlist = () => {
-  const[symboltoParticularstock,SetsymboltoParticularstock]=useState(null);
+  const [symboltoParticularstock, setSymboltoParticularstock] = useState(null);
   function openparticlarstock({name, symbol, logo, currentPrice}) {
     console.log("Selected Share currentprice:", currentPrice);
-    SetsymboltoParticularstock({name, symbol, logo, currentPrice});
+    setSymboltoParticularstock({name, symbol, logo, currentPrice});
     
 }
 
@@ -16,7 +17,8 @@ const StockandWatchlist = () => {
           <WatchList HandliclickopenparticularstocK={openparticlarstock}/>
       </div>
       <div className='particularstaockarea'>
-        {symboltoParticularstock && <Particularstock symboltoParticularstock={symboltoParticularstock}/>}
+      {symboltoParticularstock ? <Particularstock symboltoParticularstock={symboltoParticularstock} /> : <Particularstock symboltoParticularstock="" />}
+
       </div>     
         
         

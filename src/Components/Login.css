@@ -5,6 +5,19 @@
     border-bottom-left-radius: 0;
 
 }
+.password-input-container {
+    position: relative;
+  }
+  
+  .eye-icon-button {
+    position: absolute;
+    top: 50%;
+    right: 10px;  /* Adjust the value based on your design */
+    transform: translateY(-50%);
+    border: none;
+    background: none;
+  }
+  
 .form-control s{
     margin-bottom: 10px;
     border-bottom-right-radius: 0;

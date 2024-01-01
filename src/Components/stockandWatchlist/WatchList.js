@@ -9,7 +9,7 @@ import 'bootstrap/dist/css/bootstrap.min.css';
 
 import './watchlist.css';
 class WatchList extends Component {
-  
+
 
   async fetchwatchlistdata() {
 
@@ -59,6 +59,44 @@ class WatchList extends Component {
         catch (error) {
           console.error('Error fetching watchlist data:', error);
         }
+      }
+      else {
+
+        this.setState({
+          watchlist: [{
+            share: {
+              "symbol": "AAPL",
+              "name": "Apple Inc",
+              "exchange": "NASDAQ",
+              "mic_code": "XNGS",
+              "currency": "USD",
+              "datetime": "2023-11-17",
+              "timestamp": 1700254796,
+              "open": "190.25000",
+              "high": "190.38000",
+              "low": "188.57001",
+              "close": "189.69000",
+              "volume": "50922700",
+              "previous_close": "189.71001",
+              "change": "-0.02000",
+              "percent_change": "-0.01054",
+              "average_volume": "56647050",
+              "is_market_open": false,
+              "fifty_two_week": {
+                "low": "124.17000",
+                "high": "198.23000",
+                "low_change": "65.52000",
+                "high_change": "-8.53999",
+                "low_change_percent": "52.76637",
+                "high_change_percent": "-4.30812",
+                "range": "124.169998 - 198.229996"
+              },
+              "logo": "https://api.twelvedata.com/logo/apple.com",
+              "currentPrice": '120'
+            },
+          }]
+        }
+        );
       }
     }
     else {
@@ -118,6 +156,7 @@ class WatchList extends Component {
       qty: '',
       Sellqty: '',
       watchlist: [],
+      sharenameandsymbollist: [],
       hasMounted: false,
       hoverIndex: null,
 
@@ -154,7 +193,7 @@ class WatchList extends Component {
     this.setState({ sharename: '' });
   };
   Symboldatasent = (element) => {
-   
+
     console.log("Selected Share Symbol 1st:", element.share);
     this.props.HandliclickopenparticularstocK(element.share);
   }
@@ -170,8 +209,27 @@ class WatchList extends Component {
     this.resetInput();
   }
 
-  handleInputChange = (event) => {
+  handleInputChange = async (event) => {
     const { value } = event.target;
+
+    try {
+      let url = `https://api.twelvedata.com/symbol_search?symbol=${value}&apikey=2778fddbde3241d2abf472b1526cb99f`;
+      let data = await fetch(url);
+      let parseingdata = await data.json();
+      let dataArray = parseingdata;
+      if (!Array.isArray(parseingdata)) {
+        dataArray=[dataArray];
+        this.setState({ sharenameandsymbollist: dataArray });
+        console.log("parsingdata", this.state.sharenameandsymbollist);
+      } 
+      // this.setState({ sharenameandsymbollist: parseingdata });
+      // console.log("parsingdata", this.state.sharenameandsymbollist);
+
+    }
+    catch (error) {
+      console.error("Error:", error);
+      // alert("this is not symbol" + error);
+    }
     this.setState({ sharename: value }, () => {
       console.log(this.state.sharename);
     });
@@ -184,17 +242,17 @@ class WatchList extends Component {
   };
   handleInputChangebuyQty = (event) => {
     const { value } = event.target;
-    console.log("sellvaluesssssss",value ,"event.target",event.target,"event.target ",event.target.value);
-    console.log("sellvaluesssssss",value);
+    console.log("sellvaluesssssss", value, "event.target", event.target, "event.target ", event.target.value);
+    console.log("sellvaluesssssss", value);
     this.setState({ qty: value }, () => {
       console.log(this.state.qty);
     });
   }
   handleInputChangeSellQty = (event) => {
-    const values  = event.target.value;
-    console.log("sellvaluesssssss",values ,"event.target",event.target,"event.target ",event.target.value);
+    const values = event.target.value;
+    console.log("sellvaluesssssss", values, "event.target", event.target, "event.target ", event.target.value);
     this.setState({ Sellqty: values }, () => {
-      console.log("sellvaluesssssss",this.state.Sellqty);
+      console.log("sellvaluesssssss", this.state.Sellqty);
     });
   }
   Buyshare = async () => {
@@ -213,7 +271,7 @@ class WatchList extends Component {
       const existingDatA = await getDoc(stockDocReF);
 
 
-      
+
       let PandL = existingDatA.data().PandL;
       // setPandL(PandL); 
       let toatalprice = this.state.sharedetails.currentPrice * this.state.qty;
@@ -281,7 +339,7 @@ class WatchList extends Component {
       const stocksinwatchlisT = collection(docreF, 'profitandLoss');
       const stockDocReF = doc(stocksinwatchlisT, 'profitandLoss');
       const existingDatA = await getDoc(stockDocReF);
-      console.log("existingDatA",existingDatA,"stockDocReF",stockDocReF.PandL);
+      console.log("existingDatA", existingDatA, "stockDocReF", stockDocReF.PandL);
 
       // Check if the document exists
       if (existingData.exists()) {
@@ -289,7 +347,7 @@ class WatchList extends Component {
           // Log the existing data to the console
           console.log("existingData", existingData);
           alert("hi");
-          const sellvalue=(this.Sellqty*this.state.sharedetails.currentPrice);
+          const sellvalue = (this.Sellqty * this.state.sharedetails.currentPrice);
           alert("hiss");
           await setDoc(existingDatA, {
             PandL: sellvalue
@@ -301,10 +359,10 @@ class WatchList extends Component {
         }
         else if (existingData.data().qty > this.state.Sellqty) {
           let sunbtractqty = existingData.data().qty - this.state.Sellqty;
-         
-          const PandLdata=existingDatA.data().PandL;
-          const sellvalue=PandLdata+(this.state.Sellqty*this.state.sharedetails.currentPrice);
-          console.log("existingDatA",existingDatA,"PandLdata",PandLdata,"this.Sellqty",this.state.Sellqty,"this.state.sharedetails.currentPrice",this.state.sharedetails.currentPrice,"sellvalue",sellvalue);
+
+          const PandLdata = existingDatA.data().PandL;
+          const sellvalue = PandLdata + (this.state.Sellqty * this.state.sharedetails.currentPrice);
+          console.log("existingDatA", existingDatA, "PandLdata", PandLdata, "this.Sellqty", this.state.Sellqty, "this.state.sharedetails.currentPrice", this.state.sharedetails.currentPrice, "sellvalue", sellvalue);
           alert("hiss");
           await setDoc(stockDocReF, {
             PandL: sellvalue
@@ -402,7 +460,7 @@ class WatchList extends Component {
 
         }
         else {
-          alert("fuck you");
+          alert("some error occurs");
         }
 
 
@@ -444,9 +502,9 @@ class WatchList extends Component {
       <div >
 
 
-        <div className="card" style={{width:"100%"}}>
+        <div className="card" style={{ width: "100%" }}>
 
-          <div className="filter" style={{width:"100%"}}>
+          <div className="filter" style={{ width: "100%" }}>
             <a className="icon" ><img
               src={addimageicon}
               id="addshareicon"
@@ -485,8 +543,8 @@ class WatchList extends Component {
                     <button type="button" className="btn buttoN btn-success me-2" onClick={() => { this.openModals(element) }}>B</button>
                     <button type="button" className="btn buttoN btn-warning me-2" onClick={() => this.Symboldatasent(element)}>C</button>
                     <button type="button" className="btn buttoN btn-warning me-2" onClick={() => { this.openModalS(element.share) }}>S</button>
-                    <button type="button" className="btn buttoN btn-warning" onClick={() => { this.DeleteShare(element.share) }}>D</button> <br/>
-                    
+                    <button type="button" className="btn buttoN btn-warning" onClick={() => { this.DeleteShare(element.share) }}>D</button> <br />
+
                   </div>
 
 
@@ -513,7 +571,7 @@ class WatchList extends Component {
           <div className="modal-dialog">
             <div className="modal-content">
               <div className="modal-header">
-                <h5 className="modal-title" id="exampleModalLabel" style={{color:'black'}}>
+                <h5 className="modal-title" id="exampleModalLabel" style={{ color: 'black' }}>
                   Add Share to Watchlist
                 </h5>
                 <button
@@ -528,8 +586,21 @@ class WatchList extends Component {
                 <form>
                   <div className="mb-3">
                     <label htmlFor="recipient-name" className="col-form-label">Add Share:</label>
-                    <input type="text" className="form-control" id="recipient-name" value={this.state.sharename} onChange={this.handleInputChange} placeholder='please enter the symbol only not name' />
+                    <input
+                      type="text"
+                      className="form-control"
+                      id="recipient-name"
+                      value={this.state.sharename}
+                      onChange={this.handleInputChange}
+                      list="symbolandsharelist" // Reference to the datalist
+                      placeholder='Please enter the symbol or the name'
+                    />
                   </div>
+                  <datalist id="symbolandsharelist">
+                    {this.state.sharenameandsymbollist.slice(0,5).map((result) => (
+                      <option key={result.mic_code} value={`${result.symbol} - ${result.instrument_name}`} />
+                    ))}
+                  </datalist>
                 </form>
               </div>
               <div className="modal-footer">
@@ -627,7 +698,7 @@ class WatchList extends Component {
                   <div className='col-6' style={{ backgroundColor: 'white', color: 'black' }}>
                     <input type="number" className="form-control" placeholder="Quantity" onChange={this.handleInputChangeSellQty} />
                   </div>
-                  <div className='col-6' style={{ backgroundColor: 'white', color: 'black' }}> <input type="number" className="form-control" placeholder="Price" value={this.state.sharedetails.currentPrice} readOnly/></div>
+                  <div className='col-6' style={{ backgroundColor: 'white', color: 'black' }}> <input type="number" className="form-control" placeholder="Price" value={this.state.sharedetails.currentPrice} readOnly /></div>
 
                 </div>
 

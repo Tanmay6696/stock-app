@@ -1,6 +1,11 @@
 import React, { useState } from 'react';
 
 import { db, auth, googleProvider } from '../Firebase';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+
+import appleLogo from '../images/apple.svg';
+import { faEye, faEyeSlash } from '@fortawesome/free-solid-svg-icons';
+
 
 import { useEffect } from 'react';
 import { doc, query, docs, getDocs, collection, addDoc, deleteDoc, setDoc, updateDoc, getDoc } from 'firebase/firestore'
@@ -25,7 +30,10 @@ const Login = () => {
   const [toastMessage, setToastMessage] = useState();
   const [isvalidemail, setisvalidemail] = useState(true);
   const [isvalidpassword, setisvalidpassword] = useState(true);
-
+  const [passwordvisible, setpasswordvisible] = useState(false);
+  const togglePasswordVisibility=()=>{    
+    setpasswordvisible(!passwordvisible);
+  }
   const Loggedin = () => {
     setlogin(true);
 
@@ -145,56 +153,47 @@ const Login = () => {
   }
   return (
     <div className='form-signin'>
-      <button onClick={Loggedin}>login</button>
-      <button onClick={signedin}>signin</button>
+
       <form style={{ "boxBoxSizing": "border-box" }}>
-
-
         <h1 className="h3 mb-5 mt-5 fw-normal" style={{ color: 'black', textAlign: 'center' }}>
-          Please {Signin ? 'Sign In' : 'Log In'}
+          Please  Log In
         </h1>
-
         <div className="form-floating mb-2">
-          <input type="email" id="form2Example1" className="form-control" onChange={emailcheck} />
-          <label className="form-label" htmlFor="form2Example1" >Email address</label>
+          <label className="form-label" htmlFor="form2Example1" style={{ color: 'black' }}>Email address</label>
+          <input type="email" id="form2Example1" className="form-control" onChange={emailcheck} placeholder='please enter email' />
         </div>
-
-
         <div className="form-floating mb-2">
-          <input type="password" id="form2Example2" className="form-control s" onChange={passwordcheck} />
-          <label className="form-label" htmlFor="form2Example2">Password</label>
+          <div className="password-input-container">
+            <input
+              type={passwordvisible ? 'text' : 'password'}
+              id="form2Example2"
+              className="form-control s"
+              onChange={passwordcheck}
+              placeholder='Please enter password'
+            />
+            <button type="button" onClick={togglePasswordVisibility} className="eye-icon-button">
+              <FontAwesomeIcon icon={passwordvisible ? faEyeSlash : faEye} />
+            </button>
+          </div>
+          
         </div>
-
-
         <div className="row mb-4">
-
-
           <div className="col">
-
             <a href="#!">Forgot password?</a>
           </div>
         </div>
         {/* <span>{showToast && <Toast message={toastMessage} />}</span> */}
         {!isvalidemail && <span style={{ color: "red" }}>Please enter a valid email address.</span>}<br />
         {!isvalidpassword && <span style={{ color: "red" }}>Please enter a valid password</span>}
-
-
-
-
-        <button type="button" disabled={!isvalidemail || !isvalidpassword} className="w-100 btn btn-lg btn-primary" onClick={Signin ? signin : Login}>{Signin ? 'Sign In' : 'Log In'}</button>
+        <button type="button" disabled={!isvalidemail || !isvalidpassword} className="w-100 btn btn-lg btn-primary" onClick={Login}>Log In</button>
 
         {showToast ? <div className="toasts" role="alert" aria-live="assertive" aria-atomic="true">
 
-          <div className="toast-body" style={{color:'black'}}>
-           {toastMessage}
+          <div className="toast-body" style={{ color: 'black' }}>
+            {toastMessage}
           </div>
         </div> : ""}
-
-
-
-
-
-      </form>
+        </form>
     </div>
 
   )

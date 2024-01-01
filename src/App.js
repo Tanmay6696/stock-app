@@ -20,6 +20,7 @@ import logo from './images/logo.svg';
 import Sliders from './Components/Sliders';
 import { Container } from 'react-bootstrap';
 import Login from './Components/Login';
+import Signup from './Components/Signup';
 
 function App() {
   return (
@@ -38,8 +39,8 @@ function App() {
             <Route path="/Login">
               <div className='content1'><Login /></div>
             </Route>
-            <Route path="/Login">
-              <div className='content1'><Login /></div>
+            <Route path="/Signup">
+              <div className='content1'><Signup /></div>
             </Route>
 
             <Route path="/news" >
