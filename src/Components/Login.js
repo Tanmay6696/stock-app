@@ -160,7 +160,7 @@ const Login = () => {
         </h1>
         <div className="form-floating mb-2">
           <label className="form-label" htmlFor="form2Example1" style={{ color: 'black' }}>Email address</label>
-          <input type="email" id="form2Example1" className="form-control" onChange={emailcheck} placeholder='please enter email' />
+          <input type="email" id="form2Example1" className="form-control" onChange={emailcheck} placeholder='Please enter email' />
         </div>
         <div className="form-floating mb-2">
           <div className="password-input-container">

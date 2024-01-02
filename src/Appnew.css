@@ -113,7 +113,7 @@ footer{
         
     }
     .content1{
-        background-color: red;
+        background-color: white;
         grid-area: content1;
         border-radius: var(--main-radius);
         padding-top: var(--main--padding);
