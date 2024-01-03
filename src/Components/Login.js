@@ -10,6 +10,7 @@ import { faEye, faEyeSlash } from '@fortawesome/free-solid-svg-icons';
 import { useEffect } from 'react';
 import { doc, query, docs, getDocs, collection, addDoc, deleteDoc, setDoc, updateDoc, getDoc } from 'firebase/firestore'
 
+import { BrowserRouter as Router, Route, Switch, useHistory } from 'react-router-dom';
 
 // import Toast from './BasicExample';
 import Datasend from './Datasend';
@@ -31,6 +32,7 @@ const Login = () => {
   const [isvalidemail, setisvalidemail] = useState(true);
   const [isvalidpassword, setisvalidpassword] = useState(true);
   const [passwordvisible, setpasswordvisible] = useState(false);
+  const history = useHistory();
   const togglePasswordVisibility=()=>{    
     setpasswordvisible(!passwordvisible);
   }
@@ -151,6 +153,27 @@ const Login = () => {
     }
 
   }
+  
+    // Function to handle successful login
+    const handleLoginSuccess = () => {
+      // Redirect to the home page
+      
+       const isAuthenticated = (true);
+     //if(auth.currentUser===auth.uid){
+      //   const isAuthenticated=true;
+     // }
+      //else{
+      //  const isAuthenticated=false;
+      //}
+      if(isAuthenticated){
+      history.push('/home');
+    }
+    else{
+      console.error('Login failed. Please check your credentials.');
+    }
+  };
+    
+  
   return (
     <div className='form-signin'>
 
@@ -185,7 +208,7 @@ const Login = () => {
         {/* <span>{showToast && <Toast message={toastMessage} />}</span> */}
         {!isvalidemail && <span style={{ color: "red" }}>Please enter a valid email address.</span>}<br />
         {!isvalidpassword && <span style={{ color: "red" }}>Please enter a valid password</span>}
-        <button type="button" disabled={!isvalidemail || !isvalidpassword} className="w-100 btn btn-lg btn-primary" onClick={Login}>Log In</button>
+        <button type="button" disabled={!isvalidemail || !isvalidpassword} className="w-100 btn btn-lg btn-primary" onClick={handleLoginSuccess}>Log In</button>
 
         {showToast ? <div className="toasts" role="alert" aria-live="assertive" aria-atomic="true">
 
