@@ -117,7 +117,7 @@ const Login = () => {
         alert("yes");
         setToastMessage("signed in successfully ");
         setShowToast(true);
-
+        handleLoginSuccess();
         // ...
       })
       .catch((error) => {
@@ -208,7 +208,7 @@ const Login = () => {
         {/* <span>{showToast && <Toast message={toastMessage} />}</span> */}
         {!isvalidemail && <span style={{ color: "red" }}>Please enter a valid email address.</span>}<br />
         {!isvalidpassword && <span style={{ color: "red" }}>Please enter a valid password</span>}
-        <button type="button" disabled={!isvalidemail || !isvalidpassword} className="w-100 btn btn-lg btn-primary" onClick={handleLoginSuccess}>Log In</button>
+        <button type="button" disabled={!isvalidemail || !isvalidpassword} className="w-100 btn btn-lg btn-primary" onClick={Login}>Log In</button>
 
         {showToast ? <div className="toasts" role="alert" aria-live="assertive" aria-atomic="true">
 
